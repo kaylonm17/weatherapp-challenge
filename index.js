@@ -23,9 +23,33 @@ form.addEventListener('submit', (e) => {
         cityName.textContent = data.name;
         temperature.textContent = `Temperature: ${Math.round(tempInFahrenheit)}°F`;
         description.textContent = `Conditions: ${data.weather[0].description}`;
+
+        // Add weather icon to card
+      const weatherIconClass = getWeatherIconClass(data.weather[0].description);
+      weatherIcon.classList.add(weatherIconClass);
+      
         card.style.display = 'block'; // Show weather card
       })
       .catch(error => {
         console.error('Error fetching weather data:', error);
       });
   });
+
+  // function getWeatherIconClass(description) {
+  //   // Map weather descriptions to Font Awesome weather icon classes
+  //   const weatherIcons = {
+  //     'clear sky': 'fa-sun',
+  //     'few clouds': 'fa-cloud-sun',
+  //     'scattered clouds': 'fa-cloud',
+  //     'broken clouds': 'fa-cloud',
+  //     'shower rain': 'fa-cloud-showers-heavy',
+  //     'rain': 'fa-cloud-rain',
+  //     'thunderstorm': 'fa-bolt',
+  //     'snow': 'fa-snowflake',
+  //     'mist': 'fa-smog',
+  //   };
+  
+  //   // Return the weather icon class for the given weather description
+  //   const lowercaseDescription = description.toLowerCase();
+  //   return weatherIcons[lowercaseDescription] || 'fa-question'; // Return 'fa-question' as the default icon class if no match is found
+  }
