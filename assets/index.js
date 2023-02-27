@@ -6,6 +6,7 @@ const card = document.querySelector('.card');
 const cityName = card.querySelector('#city-name');
 const temperature = card.querySelector('#temperature');
 const description = card.querySelector('#description');
+const weatherIcon = card.querySelector('#weather-icon');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -35,21 +36,21 @@ form.addEventListener('submit', (e) => {
       });
   });
 
-  // function getWeatherIconClass(description) {
-  //   // Map weather descriptions to Font Awesome weather icon classes
-  //   const weatherIcons = {
-  //     'clear sky': 'fa-sun',
-  //     'few clouds': 'fa-cloud-sun',
-  //     'scattered clouds': 'fa-cloud',
-  //     'broken clouds': 'fa-cloud',
-  //     'shower rain': 'fa-cloud-showers-heavy',
-  //     'rain': 'fa-cloud-rain',
-  //     'thunderstorm': 'fa-bolt',
-  //     'snow': 'fa-snowflake',
-  //     'mist': 'fa-smog',
-  //   };
+  function getWeatherIconClass(description) {
+    // Map weather descriptions to Font Awesome weather icon classes
+    const weatherIcons = {
+      'clear sky': 'fa-sun',
+      'few clouds': 'fa-cloud-sun',
+      'scattered clouds': 'fa-cloud',
+      'broken clouds': 'fa-cloud',
+      'shower rain': 'fa-cloud-showers-heavy',
+      'rain': 'fa-cloud-rain',
+      'thunderstorm': 'fa-bolt',
+      'snow': 'fa-snowflake',
+      'mist': 'fa-smog',
+    };
   
-  //   // Return the weather icon class for the given weather description
-  //   const lowercaseDescription = description.toLowerCase();
-  //   return weatherIcons[lowercaseDescription] || 'fa-question'; // Return 'fa-question' as the default icon class if no match is found
+    // Return the weather icon class for the given weather description
+    const lowercaseDescription = description.toLowerCase();
+    return weatherIcons[lowercaseDescription] || 'fa-question'; // Return 'fa-question' as the default icon class if no match is found
   }
