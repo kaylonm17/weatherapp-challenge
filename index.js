@@ -2,6 +2,10 @@
 const apiKey = 'c1ff3d4c323f2ce64c986ccd83c9e8bc';
 const form = document.querySelector('form');
 const input = form.querySelector('input');
+const card = document.querySelector('.card');
+const cityName = card.querySelector('#city-name');
+const temperature = card.querySelector('#temperature');
+const description = card.querySelector('#description');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
