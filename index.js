@@ -15,7 +15,15 @@ form.addEventListener('submit', (e) => {
     fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
-        console.log(data); // or do something else with the weather data
+         // Convert temperature from Celsius to Fahrenheit
+      const tempInCelsius = data.main.temp - 273.15;
+      const tempInFahrenheit = (tempInCelsius * 9/5) + 32;
+
+      // Update weather card with returned data
+        cityName.textContent = data.name;
+        temperature.textContent = `Temperature: ${Math.round(tempInFahrenheit)}°F`;
+        description.textContent = `Conditions: ${data.weather[0].description}`;
+        card.style.display = 'block'; // Show weather card
       })
       .catch(error => {
         console.error('Error fetching weather data:', error);
